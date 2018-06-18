@@ -1,3 +1,4 @@
-class UserMeal < ActiveRecord::Base[5.1]
-  belongs_to :user, :meal 
+class UserMeal < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :meal
 end
