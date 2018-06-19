@@ -50,15 +50,26 @@ class User < ActiveRecord::Base
     	end
     end
 
+    def input_meal
+       puts "Please enter the name of your meal:"
+       food = gets.chomp
+       puts "Please enter your meal calories:"
+       calories = gets.chomp
+       puts "Please enter your sugar intake:"
+       sugar = gets.chomp
+       puts "Please enter your salt intake:"
+       salt = gets.chomp
+       puts "Please enter your carb intake:"
+       carbs = gets.chomp
+       puts "Please enter your protein intake:"
+       protein = gets.chomp
+ 	  end
 
+    def create_new_meal(food,calories,sugar,salt,carbs,protein)
+      Meal.new(food: food, calories: calories, sugar: sugar, salt: salt, carb: carbs, protein: protein)
+    end
 
-
-
-  # 	def input_meal
-
- 	# end
-
-  # 	def check_meal
+  # def check_meal
 
   	# end
 
