@@ -1,9 +1,11 @@
 require 'net/http'
 require 'uri'
+require_relative "../application.rb"
 
 class VRClient
 
   @@baseURL = "http://api.vedicrishiastro.com/v1/planets/tropical"
+
   def initialize(uid=nil,key=nil)
     @userID = uid
     @apiKey = key
@@ -22,7 +24,7 @@ class VRClient
     req.basic_auth @userID, @apiKey
     req.set_form_data(data)
     resp = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
-    puts resp.body
+    JSON.parse(resp.body)
   end
 
   def data(date, month, year, hour, minute, latitude, longitude, timezone)
