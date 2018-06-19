@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   	time = Time.now
   	case time
   	when time.hour == 0..11
-  		puts "Good morning!
+  		puts "Good morning!"
   	when time.hour == 12..15
   		puts "Good afternoon!"
   	when time.hour == 16..21
-  		puts "Good night!
+  		puts "Good night!"
   	when time.hour == 22..24
   		puts "NO EATING THIS LATE"
   	end
@@ -21,33 +21,40 @@ class User < ActiveRecord::Base
   	puts "1. Input Meal\n 
   		  2. Check Meals\n
   		  3. Exit"
-  		  get_user_choice
-  		if get_user_choice = 1
-  			input_meal
-  		elsif get_user_choice = 2
-  			check_meal
-  		elsif get_user_choice = 3 
-  			#exit application
-  			puts "Goodbye!"
-  		else
-  			"Not a valid choice"
-  		end
+  		answer = gets.chomp 
+  		get_user_choice
+  		what_to_do(answer)
   end
 
-  		
+  def get_user_choice
+  	gets.chomp 
+  	end
+
+  def what_to_do
+  	if answer == 1
+			input_meal
+			puts "input meal method"
+		elsif answer == 2
+			check_meal
+			puts "check meal method"
+		elsif answer == 3 
+			#exit application
+			puts "Goodbye!"
+		else
+			puts "Not a valid choice."
+  	end
   end
+ 
 
-  	def get_user_choice
-  	choice = gets.chomp 
-  	end
+  	
 
-  	def input_meal
+  # 	def input_meal
 
- 	end
+ 	# end
 
-  	def check_meal
+  # 	def check_meal
 
-  	end
+  	# end
   
 
  end
