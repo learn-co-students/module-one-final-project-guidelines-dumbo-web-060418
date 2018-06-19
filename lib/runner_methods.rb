@@ -12,6 +12,10 @@ def birth_coordinates(city)
   Geocoder.coordinates(city)
 end
 
+def check_for_name(name)
+  User.find_by(name: name).nil?
+end
+
 def get_choice
   options
   gets.chomp
@@ -118,19 +122,11 @@ def view
   print_users
   puts "Select a name"
   name = gets.chomp
-    binding.pry
-    if check_for_name(name)
-      puts "That name does not exist"
-      view
-    else
-      select_chart(name)
-    end
+
+  if check_for_name(name)
+    puts "That name does not exist"
+    view
+  else
+    select_chart(name)
+  end
 end
-
-def check_for_name(name)
-  User.find_by(name: name).nil?
-end
-
-
-
-#method that does this CLIENT.call(day, month, year, hour, minute, lat, long, timezone)#
