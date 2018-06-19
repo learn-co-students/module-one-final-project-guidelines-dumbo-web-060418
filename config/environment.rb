@@ -4,7 +4,7 @@ require_all 'lib'
 require_all 'app'
 
 ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'db/development.db')
-# ActiveRecord::Base.logger.level = 1
+ActiveRecord::Base.logger.level = 1
 
 
 CLIENT = VRClient.new(USER_ID, API_KEY)
