@@ -69,9 +69,17 @@ class User < ActiveRecord::Base
       Meal.new(food: food, calories: calories, sugar: sugar, salt: salt, carb: carbs, protein: protein)
     end
 
-  # def check_meal
-
-  	# end
+    def get_meals
+      UserMeal.all.select do |user_meal|
+          user_meal.user == self
+        end
+    end
+    
+    def check_meals
+      self.get_meals.map do |user_meals|
+        user_meals.meal
+      end
+    end
 
 
  end
