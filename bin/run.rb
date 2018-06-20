@@ -1,4 +1,5 @@
 require_relative '../config/environment'
+require 'pry'
 
 #Gets name of user
 def user_name(name)
@@ -38,9 +39,9 @@ def welcome
  #Presents User with menu options
   def menu_options
     puts "What would you like to do? Enter a number to pick your option"
-    puts "1. Input Meal\n
-        2. Check Meals\n
-        3. Exit"
+    puts "1. Input Meal"
+    puts "2. Check Meals"
+    puts "3. Exit"
       answer = get_user_choice
       what_to_do(answer)
   end
@@ -51,7 +52,6 @@ def welcome
        input_meal
     elsif answer == "2"
        check_meal
-      puts "check meal method"
     elsif answer == "3"
       puts "Goodbye"
     else
@@ -63,18 +63,21 @@ def welcome
  #Gets User's meal data
   def input_meal
      puts "Please enter the name of your meal:"
-     food = gets.chomp
-     puts "Please enter your meal calories:"
-     calories = gets.chomp
-     puts "Please enter your sugar intake:"
-     sugar = gets.chomp
-     puts "Please enter your salt intake:"
-     salt = gets.chomp
-     puts "Please enter your carb intake:"
-     carbs = gets.chomp
-     puts "Please enter your protein intake:"
-     protein = gets.chomp
-  end
+     food = gets.chomp #should make sure a string is entered and eventually be editable
+    		puts "Please enter your meal calories:"
+    		calories = gets.chomp
+    		puts "Please enter your sugar intake:"
+    		sugar = gets.chomp
+    		puts "Please enter your salt intake:"
+    		salt = gets.chomp
+    		puts "Please enter your carb intake:"
+    		carbs = gets.chomp
+    		puts "Please enter your protein intake:"
+    		protein = gets.chomp
+    		menu_options
+    	
+   end
+
 
  #Creates a new meal instance based on User inputs
   def create_new_meal(food,calories,sugar,salt,carbs,protein)
