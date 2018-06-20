@@ -12,6 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20180620150714) do
 
+  create_table "meal_controllers", force: :cascade do |t|
+    t.integer "user_id"
+  end
+
   create_table "meals", force: :cascade do |t|
     t.string  "food"
     t.integer "calories"
