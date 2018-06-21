@@ -13,23 +13,16 @@ def welcome
     logtime = Time.now.hour
     case logtime
     when 0..11
-      puts "Good morning!"
+      puts "Good morning #{user.name}!!"
     when 12..15
-      puts "Good afternoon!"
+      puts "Good afternoon #{user.name}!!"
     when 16..21
-      puts "Good night!"
+      puts "Good evening #{user.name}!!"
     when 22, 23
-      puts "Up so late!"
+      puts "Up so late, #{user.name}?!"
     else
       puts "Please try again."
     end
-  end
-
-
-
- #Gets User's choice
-  def get_user_choice
-    gets.chomp
   end
 
  #Presents User with menu options
@@ -41,7 +34,7 @@ def welcome
     puts "3. Update Meals"
 		puts "4. Delete Meals"
 		puts "5. Exit"
-      answer = get_user_choice
+      answer = gets.chomp
       what_to_do(answer)
   end
 
@@ -59,7 +52,7 @@ def welcome
 			 puts "Goodbye!"
     else
       puts "Not a valid choice. Please try again."
-      return_home
+      menu_options
     end
   end
 
@@ -77,11 +70,9 @@ def welcome
     		carbs = gets.chomp
     		puts "Please enter your protein intake:"
     		protein = gets.chomp
-    	 #implement way to re-input values for meal
 
     	 meal = create_new_meal(food,calories,sugar,salt,carbs,protein)
        self.user.meals << meal
-    	 # UserMeal.create(user_id: self.user_id, meal_id: meal.id)
     	 menu_options
    end
 
@@ -99,7 +90,6 @@ def welcome
        puts "| #{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein} |"  #should print out all values for this meal instance
 		end
 		menu_options
-
   end
 
  #Updates a part or all of a user's meal instance
@@ -107,9 +97,7 @@ def welcome
     puts "Enter the name of the meal you want to update:"
     meal_name = gets.chomp
 		  new_user = User.find(self.user.id)
-		  # new_user.meals.select do |meal|
-			# if meal.food == meal_name
-				my_meal = Meal.find_by(food: meal_name)
+			my_meal = Meal.find_by(food: meal_name)
 			if my_meal
 				puts "Enter the name of the new meal"
 		    new_meal_name = gets.chomp
@@ -129,42 +117,24 @@ def welcome
 			  puts "There is no meal that matches that name. Please try again."
 	   end
 		 menu_options
-	 # end
-
-
 end
 
 	#Deletes a user's meal instance
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
-     meal_name = gets.chomp
-		   new_user = User.find(self.user.id)
-			 # meal = Meal.find_by(food:meal_name)
-
-			 meal = new_user.meals.find {|meal| meal.food == meal_name}
-		   # new_user.meals.each do |meal|
-		     if meal
-					 	meal.destroy
-						puts "Your meal has been deleted."
-					else
-						puts "Your meal does not exist."
-				 end
-			 # end
+    meal_name = gets.chomp
+		new_user = User.find(self.user.id)
+		meal = new_user.meals.find {|meal| meal.food == meal_name}
+     if meal
+			 	meal.destroy
+				puts "Your meal has been deleted."
+			else
+				puts "Your meal does not exist."
+		 end
 			 menu_options
 		end
 
-
-#Returns User to home screen
-  def return_home
-    welcome
-    menu_options
-  end
-
   #+++++++NEXT UP+++++++
-  #AFTERNOON
-  #work on control flow of the logic
 
-  #~*~****~*~ FUN STUFF *~*~*~~~~*~***
-  #create table that returns for the user when they check their meals (#check_meals)
 
-end
+end #ends class
