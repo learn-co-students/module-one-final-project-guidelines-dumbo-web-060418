@@ -7,8 +7,11 @@ end
 def delete
   clear
   puts "Who would you like to delete?"
+  puts_space
   print_users
+  puts_space
   name = gets.chomp.strip
+  puts_space
 
   if name == "return"
     return

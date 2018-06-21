@@ -15,7 +15,8 @@ def add
       birthchart = get_birthchart(formatted_date)
       new_person = User.find_or_create_by(name: name)
       save_chart(birthchart, new_person)
-      puts "User has been added."
+      puts "#{name} has been added."
+      continue
     end
   end
 end
@@ -45,6 +46,7 @@ def format_birthday(birthday)
   if date_invalid?(date)
     puts "Try again."
     date = get_birthday
+    return format_birthday(date)
   end
   date
 end

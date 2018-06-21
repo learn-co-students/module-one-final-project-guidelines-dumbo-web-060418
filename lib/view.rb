@@ -40,37 +40,16 @@ def print_users
 end
 
 
-def print_sun_sign_counts(sun_sign_counts)
-  sun_sign_counts.each do |sign, count|
-    sym = SYMBOLS[sign.to_sym]
-    puts "#{sym} #{sign} - #{count} #{sym}"
-    puts_space_line_space
-  end
-end
-
-
 def random(const)
   const[rand(const.size)]
 end
 
 
-def sun_sign_counts
-  sign_count = {}
-  Sign.all.each { |sign| sign_count[sign.name] = 0 }
-
-  Chart.where(planet_id: 1).each do |sun_chart|
-    sign = Sign.find_by(id: sun_chart.sign_id)
-    sign_count[sign.name] += 1
-  end
-
-  sign_count.select { |sign, number| number > 0 }
-end
-
-
 def view_a_chart
-  clear
   puts "Select a name or type 'return' to go back to the menu"
+  puts_space
   print_users
+  puts_space
   name = gets.chomp.strip
 
   if name == "return"
@@ -80,6 +59,7 @@ def view_a_chart
     view_a_chart
   else
     view_chart_by_name(name)
+    continue
   end
 end
 
@@ -93,31 +73,4 @@ def view_chart_by_name(name)
     sign = Sign.find_by(id: row.sign_id)
     print_chart(planet, sign)
   end
-end
-
-
-def view_chart_stats
-  loop do
-    clear
-    puts "Select one of the following:"
-    view_chart_stats_options
-    choice = gets.chomp.strip
-
-    case choice
-    when "sun sign counts"
-      count = sun_sign_counts
-      print_sun_sign_counts(count)
-    when "return"
-      break
-    else
-      puts "Please enter a valid command"
-    end
-  end
-end
-
-
-def view_chart_stats_options
-  clear
-  puts "type 'sun sign counts' to see how many of your friend have each sun sign"
-  puts "type 'return' to return to the main menu"
 end

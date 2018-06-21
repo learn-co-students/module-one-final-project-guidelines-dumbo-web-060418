@@ -22,11 +22,12 @@ def options
   puts "type 'add' to add chart"
   puts "type 'delete' to delete a chart"
   puts "type 'view' to view chart"
-  puts "type 'view chart stats' to see stats about friends"
+  puts "type 'sign counts' to see stats about friends' signs"
   puts "type 'compare' to compare charts"
   puts "type 'update' to update a chart"
   puts "type 'all signs' to learn about all the signs"
   puts "type 'all planets' to learn about all the planets"
+  puts_space
   puts "type 'return' at any time to return to the previous menu"
   puts "type 'exit' to exit astroCLI"
   puts_space
@@ -43,35 +44,35 @@ def run
     case choice
     when "add"
       add
-      continue
 
     when "delete"
       delete
       continue
 
     when "view"
+      clear
       if User.all.empty?
         puts "There are no charts to view."
+        continue
       else
         view_a_chart
-        continue
       end
 
     when "compare"
       clear
       if User.all.length <= 1
         puts "Add users first to compare their charts."
+        continue
       else
         compare
         continue
       end
 
     when "update"
+      clear
       update
-      gets.chomp
-    when "view chart stats"
-      view_chart_stats
-      continue
+    when "sign counts"
+      sign_counts_menu
 
     when "all signs"
       clear
