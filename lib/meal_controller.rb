@@ -83,7 +83,6 @@ def welcome
        self.user.meals << meal
     	 # UserMeal.create(user_id: self.user_id, meal_id: meal.id)
     	 menu_options
-
    end
 
 
@@ -107,41 +106,52 @@ def welcome
 	def update_meals
     puts "Enter the name of the meal you want to update:"
     meal_name = gets.chomp
-    my_meal = Meal.find_by(food: meal_name)
-    puts "Enter the name of the new meal"
-    new_meal_name = gets.chomp
-    puts "New calories?"
-    new_calories = gets.chomp
-    puts "New sugar?"
-    new_sugar = gets.chomp
-    puts "New salt?"
-    new_salt = gets.chomp
-    puts "New carbs?"
-    new_carbs = gets.chomp
-    puts "New protein?"
-    new_protein = gets.chomp
-    
-    my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
-    menu_options  
+		  new_user = User.find(self.user.id)
+		  # new_user.meals.select do |meal|
+			# if meal.food == meal_name
+				my_meal = Meal.find_by(food: meal_name)
+			if my_meal
+				puts "Enter the name of the new meal"
+		    new_meal_name = gets.chomp
+		    puts "New calories?"
+		    new_calories = gets.chomp
+		    puts "New sugar?"
+		    new_sugar = gets.chomp
+		    puts "New salt?"
+		    new_salt = gets.chomp
+		    puts "New carbs?"
+		    new_carbs = gets.chomp
+		    puts "New protein?"
+		    new_protein = gets.chomp
+	      my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
+				puts "Successfully updated #{meal_name}"
+		 else
+			  puts "There is no meal that matches that name. Please try again."
+	   end
+		 menu_options
+	 # end
 
-    # cannot update meal when the meal is already in database
-  end
-  
 
+end
 
 	#Deletes a user's meal instance
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
      meal_name = gets.chomp
-     my_meal = Meal.find_by(food: meal_name)
-     my_meal.destroy
-    puts "Your meal has been deleted!"
-     menu_options
+		   new_user = User.find(self.user.id)
+			 # meal = Meal.find_by(food:meal_name)
 
-     # should check if meal exists 
- 	end
-
-
+			 meal = new_user.meals.find {|meal| meal.food == meal_name}
+		   # new_user.meals.each do |meal|
+		     if meal
+					 	meal.destroy
+						puts "Your meal has been deleted."
+					else
+						puts "Your meal does not exist."
+				 end
+			 # end
+			 menu_options
+		end
 
 
 #Returns User to home screen
@@ -151,23 +161,10 @@ def welcome
   end
 
   #+++++++NEXT UP+++++++
-  #MORNING
-
-  #delete_meal deletes meal within the running of the application (check #check_meal/#update_meal
-  #validation that values exist when the user types them in 
-
   #AFTERNOON
-  #display full meal information in check_meals - DONE
   #work on control flow of the logic
 
   #~*~****~*~ FUN STUFF *~*~*~~~~*~***
-
   #create table that returns for the user when they check their meals (#check_meals)
-  def back_to_menu(args)
-    if args == 1
-      menu_options
-    end
-  end
 
 end
-
