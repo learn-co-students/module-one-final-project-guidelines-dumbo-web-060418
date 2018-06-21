@@ -94,10 +94,11 @@ def welcome
 
  #Gets all the meals belonging to the User
   def check_meals
-    user.meals.each do |meal|
-       puts meal.food #should print out all values for this meal instance
-		
-    end
+    new_user = User.find(self.user.id)
+       puts "| Food | Calories | Sugar | Salt | Carbs | Protein |"
+    new_user.meals.each do |meal|
+       puts "| #{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein} |"  #should print out all values for this meal instance
+		end
 		menu_options
 
   end
@@ -106,7 +107,7 @@ def welcome
 	def update_meals
     puts "Enter the name of the meal you want to update:"
     meal_name = gets.chomp
-    my_meal = user.meals.find_by(food: meal_name)
+    my_meal = Meal.find_by(food: meal_name)
     puts "Enter the name of the new meal"
     new_meal_name = gets.chomp
     puts "New calories?"
@@ -121,11 +122,9 @@ def welcome
     new_protein = gets.chomp
     
     my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
-    my_meal.save
-    self.user.meals << my_meal
-    menu_options
-      #make into hash to pass in certain attributes
-      #should check if meal exists 
+    menu_options  
+
+    # cannot update meal when the meal is already in database
   end
   
 
@@ -134,7 +133,7 @@ def welcome
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
      meal_name = gets.chomp
-     my_meal = user.meals.find_by(food: meal_name)
+     my_meal = Meal.find_by(food: meal_name)
      my_meal.destroy
     puts "Your meal has been deleted!"
      menu_options
@@ -158,13 +157,17 @@ def welcome
   #validation that values exist when the user types them in 
 
   #AFTERNOON
-  #display full meal information in check_meals
+  #display full meal information in check_meals - DONE
   #work on control flow of the logic
 
   #~*~****~*~ FUN STUFF *~*~*~~~~*~***
 
   #create table that returns for the user when they check their meals (#check_meals)
-  
+  def back_to_menu(args)
+    if args == 1
+      menu_options
+    end
+  end
 
 end
 
