@@ -10,9 +10,11 @@ end
 
 def all_signs
   rows = []
+
   Sign.all.each do |sign|
     rows << ["#{sign.name} #{sign.symbol}", sign.element, sign.quality, sign.ruled_by]
   end
+  
   table = Terminal::Table.new :headings => ["Sign", "Element", "Quality", "Ruled by"], :rows => rows, :style => {:width => 80, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
   puts table
 end

@@ -37,7 +37,7 @@ end
 def run
   loop do
     clear
-    puts "~welcome~to~astroCLI~"
+    puts ASTROCLI
     puts_space
     choice = get_choice
 

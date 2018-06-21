@@ -5,22 +5,29 @@ def add
     clear
     return
   else
-    date = get_birthday
-
-    if date == "return"
-      clear
-      return
-    else
-      formatted_date = format_birthday(date)
-      birthchart = get_birthchart(formatted_date)
-      new_person = User.find_or_create_by(name: name)
-      save_chart(birthchart, new_person)
-      puts "#{name} has been added."
-      continue
-    end
+    create_chart
   end
 end
 
+
+def create_chart
+  date = get_birthday
+
+  if date == "return"
+    clear
+    return
+  elsif date_invalid?(format_birthday(date))
+    puts "Try again"
+    create_chart
+  else
+    formatted_date = format_birthday(date)
+    birthchart = get_birthchart(formatted_date)
+    new_person = User.find_or_create_by(name: name)
+    save_chart(birthchart, new_person)
+    puts "#{name} has been added."
+    continue
+  end
+end
 
 def date_invalid?(date)
   date.length != 3 || !Date.valid_date?(date[2].to_i,date[0].to_i,date[1].to_i)
@@ -41,14 +48,7 @@ def get_birthday
 end
 
 def format_birthday(birthday)
-  date = birthday.split("/")
-
-  if date_invalid?(date)
-    puts "Try again."
-    date = get_birthday
-    return format_birthday(date)
-  end
-  date
+  birthday.split("/")
 end
 
 
