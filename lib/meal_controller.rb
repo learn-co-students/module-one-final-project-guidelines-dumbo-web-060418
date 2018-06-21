@@ -19,7 +19,7 @@ def welcome
     when 16..21
       puts "Good night!"
     when 22, 23
-      puts "NO EATING THIS LATE"
+      puts "Up so late!"
     else
       puts "Please try again."
     end
@@ -95,7 +95,6 @@ def welcome
   def check_meals
     user.meals.each do |meal|
        puts meal.food #should print out all values for this meal instance
-       binding.pry
 		end
 		menu_options
   end
@@ -116,7 +115,7 @@ def welcome
 
  #Updates a part or all of a user's meal instance
 	def update_meals
-		puts "Enter the name of the meal you want to update:"
+    puts "Enter the name of the meal you want to update:"
     meal_name = gets.chomp
     my_meal = user.meals.find_by(food: meal_name)
     puts "Enter the name of the new meal"
@@ -131,12 +130,32 @@ def welcome
     new_carbs = gets.chomp
     puts "New protein?"
     new_protein = gets.chomp
-      
     my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
     my_meal.save
     menu_options
       #make into hash to pass in certain attributes
       #should check if meal exists 
+  end
+
+  def update_meal_values
+    puts "Enter the name of the meal you want to update:"
+    meal_name = gets.chomp
+    my_meal = user.meals.find_by(food: meal_name)
+    puts "Enter the name of the new meal"
+    new_meal_name = gets.chomp
+    puts "New calories?"
+    new_calories = gets.chomp
+    puts "New sugar?"
+    new_sugar = gets.chomp
+    puts "New salt?"
+    new_salt = gets.chomp
+    puts "New carbs?"
+    new_carbs = gets.chomp
+    puts "New protein?"
+    new_protein = gets.chomp
+    my_meal
+
+    #issue connecting variable to #delete_meal
   end
   
 
@@ -163,14 +182,19 @@ def welcome
   end
 
   #+++++++NEXT UP+++++++
+  #MORNING
 
-  #Give users the ability to delete their meal entry
-	#and/or all associated meals.
-	#Give users the ability to update their meal entry
+  #delete_meal deletes meal within the running of the application (check #check_meal/#update_meal
+  #validation that values exist when the user types them in 
 
-	# if calories == "1"
-	# 	menu_options
-	# end
+  #AFTERNOON
+  #display full meal information in check_meals
+  #work on control flow of the logic
+
+  #~*~****~*~ FUN STUFF *~*~*~~~~*~***
+
+  #create table that returns for the user when they check their meals (#check_meals)
+  
 
 end
 
