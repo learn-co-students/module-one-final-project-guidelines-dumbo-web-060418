@@ -80,7 +80,8 @@ def welcome
     	 #implement way to re-input values for meal
 
     	 meal = create_new_meal(food,calories,sugar,salt,carbs,protein)
-    	 UserMeal.create(user_id: self.user_id, meal_id: meal.id)
+       self.user.meals << meal
+    	 # UserMeal.create(user_id: self.user_id, meal_id: meal.id)
     	 menu_options
 
    end
@@ -95,23 +96,11 @@ def welcome
   def check_meals
     user.meals.each do |meal|
        puts meal.food #should print out all values for this meal instance
-		end
+		
+    end
 		menu_options
-  end
 
-	#Gets user's updated meal information
-	# def my_meal_update_questions
-	# 	 puts "Please enter your meal calories:"
-	# 	 calories = gets.chomp
-	# 	 puts "Please enter your sugar intake:"
-	# 	 sugar = gets.chomp
-	# 	 puts "Please enter your salt intake:"
-	# 	 salt = gets.chomp
-	# 	 puts "Please enter your carb intake:"
-	# 	 carbs = gets.chomp
-	# 	 puts "Please enter your protein intake:"
-	# 	 protein = gets.chomp
-	# end
+  end
 
  #Updates a part or all of a user's meal instance
 	def update_meals
@@ -130,32 +119,13 @@ def welcome
     new_carbs = gets.chomp
     puts "New protein?"
     new_protein = gets.chomp
+    
     my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
     my_meal.save
+    self.user.meals << my_meal
     menu_options
       #make into hash to pass in certain attributes
       #should check if meal exists 
-  end
-
-  def update_meal_values
-    puts "Enter the name of the meal you want to update:"
-    meal_name = gets.chomp
-    my_meal = user.meals.find_by(food: meal_name)
-    puts "Enter the name of the new meal"
-    new_meal_name = gets.chomp
-    puts "New calories?"
-    new_calories = gets.chomp
-    puts "New sugar?"
-    new_sugar = gets.chomp
-    puts "New salt?"
-    new_salt = gets.chomp
-    puts "New carbs?"
-    new_carbs = gets.chomp
-    puts "New protein?"
-    new_protein = gets.chomp
-    my_meal
-
-    #issue connecting variable to #delete_meal
   end
   
 
@@ -165,7 +135,7 @@ def welcome
  		puts "Enter the name of the meal you want to delete:"
      meal_name = gets.chomp
      my_meal = user.meals.find_by(food: meal_name)
-     my_meal.delete
+     my_meal.destroy
     puts "Your meal has been deleted!"
      menu_options
 
