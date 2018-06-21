@@ -1,33 +1,33 @@
 MEANINGS = {
   Aries: {
-    Sun: "Aries is an active, energetic sign. People with Sun in Aries are direct, straightforward, and uncomplicated. They expect the same from others, and are baffled when they don’t always get it.",
-    Moon: "They live in the moment and have a hard time waiting for things to happen. Whims of the moment take absolute precedence in their lives.",
-    Mercury: "Mercury in Aries communicators make quick decisions–so quick that you might think they don’t much like thinking things over. The truth is, Aries communicators don’t have a lot of patience for mulling. Their decisions are often driven by the need for instant gratification.",
-    Venus: "Venus in Aries people flirt by being up-front, direct, and even daring. They try to win you over by expressing how enterprising and independent they are.",
-    Mars: "This is a very impulsive position of Mars. The first instinct for Mars in Aries natives is to take action. Quick flare-ups characterize the Mars in Aries character, but their anger usually doesn’t last for too long.",
-    Uranus: "People with a Uranus in Aries placement search for what is new and out of the ordinary, but are prone to foolhardiness and can be extremely eccentric.",
-    Jupiter: "There's a belief in the power of positivity, that life is what you make of it. Loves competition, doing things independently. Values instant results. Attracts the most good fortune when he/she takes the lead, initiates, inspires, and demonstrates enthusiasm and courage.",
-    Saturn: "While Saturn in Aries may cause a delayed development of ambition in their life, they may end up taking on a lot of responsibility when still very young. Obstacles arise that may block progress. Having to assert themselves can cause a lot of anxiety. Anger may be an issue, although others see them as controlled and cool the majority of the time."
+    Sun: "Aries is an active, energetic sign. People with Sun in Aries are direct, \nstraightforward, and uncomplicated. They expect the same from others, \nand are baffled when they don’t always get it.",
+    Moon: "They live in the moment and have a hard time waiting for things to happen. \nWhims of the moment take absolute precedence in their lives.",
+    Mercury: "Mercury in Aries communicators make quick decisions–so quick that you might think they don’t much like thinking things over. The truth is, Aries \ncommunicators don’t have a lot of patience for mulling. \nTheir decisions are often driven by the need for instant gratification.",
+    Venus: "Venus in Aries people flirt by being up-front, direct, and even daring. \nThey try to win you over by expressing how enterprising and independent \nthey are.",
+    Mars: "This is a very impulsive position of Mars. The first instinct for Mars in \nAries natives is to take action. Quick flare-ups characterize the Mars \nin Aries character, but their anger usually doesn’t last for too long.",
+    Uranus: "People with a Uranus in Aries placement search for what is new and out of \nthe ordinary, but are prone to foolhardiness and can be extremely eccentric.",
+    Jupiter: "There's a belief in the power of positivity, that life is what you make of it. \nLoves competition, doing things independently. Values instant results. \nAttracts the most good fortune when he/she takes the lead, initiates, inspires, and demonstrates enthusiasm and courage.",
+    Saturn: "While Saturn in Aries may cause a delayed development of ambition in their life, \nthey may end up taking on a lot of responsibility when still very young. \nObstacles arise that may block progress. Having to assert \nthemselves can cause a lot of anxiety. Anger may be an issue, \nalthough others see them as controlled and cool the majority of the time."
     },
   Taurus: {
-    Sun: "Taurus natives are sensual folk–and this includes sex, but extends to pleasures in all areas: they delight in the sensual pleasures of food, a comfortable blanket, a richly colored aquarium to look at, the smell of flowers or spring rain, pleasing melodies coming from their stereos, and so forth. Though they are dependable most of the time, this generally shows itself more in habit than in outright helpfulness.",
-    Moon: "Familiarity is important to Lunar Taureans. These people are earthy and strong-willed. They feel with their senses and they are pretty much rooted in their ways.",
-    Mercury: "Mercury in Taurus natives are plodders. They may take their time to arrive at a decision, but they get there — they are actually quite decisive, even stubborn with their opinions.",
-    Venus: "Love for Venus in Taurus centers on the physical world and creature comforts — they revel in sensual surroundings. These people project themselves as solid and comfortable.",
-    Mars: "“Slow and steady wins the race” could easily be a motto for Mars in Taurus. These goal-oriented people are not known for their speed, but their staying power is tremendous.",
-    Uranus: "There is a clash here between oppising tendencies. Fixed Taurus wants to sit still while Uranus wants to break free from all conventions. A person with this placement is stubborn and brilliant.",
-    Jupiter: "There is a delight in sensual pleasures and wants the good life. A strong feeling of what they want is worth attracts success. Good instincts for finances, what things are worth/good products, and investing. Attracts the most good fortune when he/she is charitable, generous but discriminating, and patient. Watch for over-indulgence.",
-    Saturn: "Saturn in Taurus has a deep need to feel secure; both emotionally and financially. They like to keep a strict control over their daily tasks. Unfortunately for them, nothing comes easy. They have to work hard for everything they get."
+    Sun: "Taurus natives are sensual folk–and this includes sex, but extends to pleasures in \nall areas: they delight in the sensual pleasures of food, a comfortable blanket, \na richly colored aquarium to look at, the smell of flowers or spring rain, \npleasing melodies coming from their stereos, and so forth. Though they are dependable \nmost of the time, this generally shows itself more in habit than in outright helpfulness.",
+    Moon: "Familiarity is important to Lunar Taureans. These people are earthy and strong-willed. \nThey feel with their senses and they are pretty much rooted in their ways.",
+    Mercury: "Mercury in Taurus natives are plodders. They may take their time to arrive at a decision, \nbut they get there — they are actually quite decisive, even stubborn with their opinions.",
+    Venus: "Love for Venus in Taurus centers on the physical world and creature comforts — they revel \nin sensual surroundings. These people project themselves as solid and comfortable.",
+    Mars: "“Slow and steady wins the race” could easily be a motto for Mars in Taurus. These goal-oriented \npeople are not known for their speed, but their staying power is tremendous.",
+    Uranus: "There is a clash here between oppising tendencies. Fixed Taurus wants to sit still while \nUranus wants to break free from all conventions. A person with this placement is stubborn and brilliant.",
+    Jupiter: "There is a delight in sensual pleasures and wants the good life. A strong feeling of what they \nwant is worth attracts success. Good instincts for finances, \nwhat things are worth/good products, and investing. Attracts the most good fortune when \nhe/she is charitable, generous but discriminating, and patient. Watch for over-indulgence.",
+    Saturn: "Saturn in Taurus has a deep need to feel secure; both emotionally and financially. \nThey like to keep a strict control over their daily tasks. Unfortunately for them, \nnothing comes easy. They have to work hard for everything they get."
   },
   Gemini: {
-    Sun: "With the Sun in Gemini, the urge for self-expression is strong. These natives are often just as interested in collecting information as they are in sharing it. Curious to a fault, Geminis have a finger in every pie. ",
-    Moon: "Lunar Geminis are usually pleasant, witty, and charming people. At home and with family, however, they can be moody and irritable at times.",
-    Mercury: "Mercury in Gemini people are generally quick-witted. They can come across as somewhat scattered, and this is mainly due to their eclectic interests. They seem to know a little about everything.",
-    Venus: "Venus in Gemini people will try to win over the object of their affection with witty conversation, displaying just how much they “know”, and demonstrating their diverse interests. These lovers are playful — some might even call them a tease.",
-    Mars: "When Mars in Gemini natives get angry or fired up, they use words as their “weapon”. Angry words–some of the most incisive and sarcastic ones–can fly around with the more energetic natives.",
-    Uranus: "Brimming with original ideas, Uranus in Gemini is great at creating and carrying out work, but can occasionally become restless.",
-    Jupiter: "There is an attraction to good fortune if a person with this placement uses their wit and ingeniousness, is versatile, sociable, curious, and puts others at ease with friendliness and sincere curiosity. Values the intellect and sees opportunities to grow and succeed through intellectual, verbal, and written channels. Believes that intelligence and knowledge are the keys to solving problems.",
-    Saturn: "Saturn in Gemini can adapt to different situations easily, using a systematic and logical approach. They are cool and rational in the face of adversity. They have excellent powers of reasoning, so they do well in mathematics and science."
+    Sun: "With the Sun in Gemini, the urge for self-expression is strong. These natives are often just \nas interested in collecting information as they are in sharing it. \nCurious to a fault, Geminis have a finger in every pie. ",
+    Moon: "Lunar Geminis are usually pleasant, witty, and charming people. At home and with family, however, \nthey can be moody and irritable at times.",
+    Mercury: "Mercury in Gemini people are generally quick-witted. They can come across as somewhat scattered, \nand this is mainly due to their eclectic interests. They seem \nto know a little about everything.",
+    Venus: "Venus in Gemini people will try to win over the object of their affection with witty conversation, \ndisplaying just how much they “know”, and demonstrating their diverse interests. These lovers are playful — some might even call them a tease.",
+    Mars: "When Mars in Gemini natives get angry or fired up, they use words as their “weapon”. Angry words–some \nof the most incisive and sarcastic ones–can fly around \nwith the more energetic natives.",
+    Uranus: "Brimming with original ideas, Uranus in Gemini is great at creating and carrying out work, but can voccasionally become restless.",
+    Jupiter: "There is an attraction to good fortune if a person with this placement uses their wit and ingeniousness, \nis versatile, sociable, curious, and puts others at \nease with friendliness and sincere curiosity. Values the intellect \nand sees opportunities to grow and succeed through intellectual, verbal, and written channels. Believes that intelligence and knowledge are the keys to solving problems.",
+    Saturn: "Saturn in Gemini can adapt to different situations easily, using a systematic and logical approach. \nThey are cool and rational in the face of adversity. \nThey have excellent powers of reasoning, so they do well in mathematics and science."
   },
   Cancer: {
     Sun: "Sun in Cancer natives have a strong survival instinct. They are protective of those they care about, and of themselves too. They are often quite reticent about sharing their inner selves with the rest of the world, and are often caught up in reminisce.",
@@ -48,7 +48,7 @@ MEANINGS = {
     Moon: "Lunar Leos often feel a need to organize, and even control, their families and friends. They have an inner mission to set things right, and generally like to oversee the goings-on in their little circle.",
     Mercury: "When Mercury in Leo people speak, they do it with authority. Some of them come across as know-it-alls, but the more mature ones speak with style. They want others to know about their presence of mind and their know-how.",
     Venus: "Venus in Leo loves to court and be courted, and they need to feel very special. They are warm, generous, and even grand. Though really quite loyal to their partners (remember that love is THE most important thing in Leo’s life), they thrive on romantic attention.",
-    Mars: "This position of Mars gives a drive for significance. Mars in Leo individuals possess a strong need to create in some wayand they are determined that their lives  have not only meaning, but significant meaning!"
+    Mars: "This position of Mars gives a drive for significance. Mars in Leo individuals possess a strong need to create in some way and they are determined that their lives  have not only meaning, but significant meaning!"
   },
   Virgo: {
     Uranus: "This placement provides a strong intuition and will be financially succesful, enjoying working in the public eye.",

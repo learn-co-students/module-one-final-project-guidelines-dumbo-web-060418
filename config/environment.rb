@@ -1,5 +1,6 @@
 require 'bundler'
 Bundler.require
+require 'date'
 require_all 'lib'
 require_all 'app'
 
