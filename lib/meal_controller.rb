@@ -67,9 +67,8 @@ def welcome
   def input_meal
      puts "Please enter the name of your meal:"
      food = gets.chomp #should make sure a string is entered and eventually be editable
-    		puts "Please enter your meal calories (Press 1 to return to menu):"
+    		puts "Please enter your meal calories:"
     		calories = gets.chomp
-
     		puts "Please enter your sugar intake:"
     		sugar = gets.chomp
     		puts "Please enter your salt intake:"
@@ -95,46 +94,67 @@ def welcome
  #Gets all the meals belonging to the User
   def check_meals
     user.meals.each do |meal|
-       puts meal
+       puts meal.food #should print out all values for this meal instance
+       binding.pry
 		end
 		menu_options
   end
 
 	#Gets user's updated meal information
-	def my_meal_update_questions
-		 puts "Please enter your meal calories:"
-		 calories = gets.chomp
-		 puts "Please enter your sugar intake:"
-		 sugar = gets.chomp
-		 puts "Please enter your salt intake:"
-		 salt = gets.chomp
-		 puts "Please enter your carb intake:"
-		 carbs = gets.chomp
-		 puts "Please enter your protein intake:"
-		 protein = gets.chomp
-	end
+	# def my_meal_update_questions
+	# 	 puts "Please enter your meal calories:"
+	# 	 calories = gets.chomp
+	# 	 puts "Please enter your sugar intake:"
+	# 	 sugar = gets.chomp
+	# 	 puts "Please enter your salt intake:"
+	# 	 salt = gets.chomp
+	# 	 puts "Please enter your carb intake:"
+	# 	 carbs = gets.chomp
+	# 	 puts "Please enter your protein intake:"
+	# 	 protein = gets.chomp
+	# end
 
  #Updates a part or all of a user's meal instance
 	def update_meals
 		puts "Enter the name of the meal you want to update:"
     meal_name = gets.chomp
-    my_meal = user.meals.find_by(food:meal_name)
-		my_meal_update_questions
-		Meal.update(user_id: self.user_id, calories: calories, sugar: sugar, salt: salt, carbs: carbs, protein: protein)
-    binding.pry
-	end
+    my_meal = user.meals.find_by(food: meal_name)
+    puts "Enter the name of the new meal"
+    new_meal_name = gets.chomp
+    puts "New calories?"
+    new_calories = gets.chomp
+    puts "New sugar?"
+    new_sugar = gets.chomp
+    puts "New salt?"
+    new_salt = gets.chomp
+    puts "New carbs?"
+    new_carbs = gets.chomp
+    puts "New protein?"
+    new_protein = gets.chomp
+      
+    my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
+    my_meal.save
+    menu_options
+      #make into hash to pass in certain attributes
+      #should check if meal exists 
+  end
+  
+
 
 	#Deletes a user's meal instance
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
      meal_name = gets.chomp
-     user.meals.select do |meal|
-        if meal.food == meal_name
-           meal.delete
-					 puts "Your meal has been deleted."
- 			end
- 		end
+     my_meal = user.meals.find_by(food: meal_name)
+     my_meal.delete
+    puts "Your meal has been deleted!"
+     menu_options
+
+     # should check if meal exists 
  	end
+
+
+
 
 #Returns User to home screen
   def return_home
@@ -152,5 +172,5 @@ def welcome
 	# 	menu_options
 	# end
 
-
 end
+
