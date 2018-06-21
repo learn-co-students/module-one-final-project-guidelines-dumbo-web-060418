@@ -17,18 +17,28 @@ end
 
 def options
   puts_space
-  puts "would you like to..."
+  "would you like to...".print_slowly
+  sleep(0.5)
   puts_space
   puts "type 'add' to add chart"
+  sleep(0.2)
   puts "type 'delete' to delete a chart"
+  sleep(0.2)
   puts "type 'view' to view chart"
+  sleep(0.2)
   puts "type 'sign counts' to see stats about friends' signs"
+  sleep(0.2)
   puts "type 'compare' to compare charts"
+  sleep(0.2)
   puts "type 'update' to update a chart"
+  sleep(0.2)
   puts "type 'all signs' to learn about all the signs"
+  sleep(0.2)
   puts "type 'all planets' to learn about all the planets"
+  sleep(0.2)
   puts_space
   puts "type 'return' at any time to return to the previous menu"
+  sleep(0.2)
   puts "type 'exit' to exit astroCLI"
   puts_space
 end

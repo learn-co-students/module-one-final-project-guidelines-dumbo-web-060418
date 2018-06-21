@@ -18,7 +18,7 @@ def print_sign_counts(sign_counts)
     rows << ["#{sym} #{sign} #{sym}", count]
   end
   table = Terminal::Table.new rows: rows, :style => {:width => 75, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
-  puts table
+  table.to_s.print_ludicrous_speed
 end
 
 
