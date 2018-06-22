@@ -6,6 +6,7 @@ def get_name
 	user_name = gets.chomp
 	user = User.find_or_create_by(name: user_name)
 	self.update(user_id: user.id)
+	puts ""
 end
 
 def welcome
@@ -13,15 +14,20 @@ def welcome
     logtime = Time.now.hour
     case logtime
     when 0..11
-      puts "Good morning #{user.name}!!"
+      puts "Good Morning #{user.name}!!"
+			puts ""
     when 12..15
-      puts "Good afternoon #{user.name}!!"
+      puts "Good Afternoon #{user.name}!!"
+			puts ""
     when 16..21
-      puts "Good evening #{user.name}!!"
+      puts "Good Evening #{user.name}!!"
+			puts ""
     when 22, 23
       puts "Up so late, #{user.name}?!"
+			puts ""
     else
       puts "Please try again."
+			puts ""
     end
   end
 
@@ -34,8 +40,11 @@ def welcome
     puts "3. Update Meals"
 		puts "4. Delete Meals"
 		puts "5. Exit"
+		puts ""
       answer = gets.chomp
+		puts ""
       what_to_do(answer)
+		puts ""
   end
 
 #Performs an action based on User selection
@@ -52,6 +61,7 @@ def welcome
 			 puts "Goodbye!"
     else
       puts "Not a valid choice. Please try again."
+			puts ""
       menu_options
     end
   end
@@ -73,7 +83,8 @@ def welcome
 
     	 meal = create_new_meal(food,calories,sugar,salt,carbs,protein)
        self.user.meals << meal
-    	 menu_options
+       puts ""
+			 menu_options
    end
 
 
@@ -89,6 +100,7 @@ def welcome
     new_user.meals.each do |meal|
        puts "| #{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein} |"  #should print out all values for this meal instance
 		end
+		puts ""
 		menu_options
   end
 
@@ -113,8 +125,10 @@ def welcome
 		    new_protein = gets.chomp
 	      my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
 				puts "Successfully updated #{meal_name}"
+				puts ""
 		 else
 			  puts "There is no meal that matches that name. Please try again."
+				puts ""
 	   end
 		 menu_options
 end
@@ -128,13 +142,12 @@ end
      if meal
 			 	meal.destroy
 				puts "Your meal has been deleted."
+				puts ""
 			else
 				puts "Your meal does not exist."
+				puts ""
 		 end
 			 menu_options
 		end
-
-  #+++++++NEXT UP+++++++
-
 
 end #ends class
