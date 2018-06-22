@@ -11,6 +11,14 @@ def count_signs_for(planet_id)
 end
 
 
+def planet_counts(planet_id, art)
+  clear
+  puts art
+  sign_counts(planet_id)
+  continue
+end
+
+
 def print_sign_counts(sign_counts)
   rows = []
   sign_counts.each do |sign, count|
@@ -37,55 +45,25 @@ def sign_counts_menu
 
     case choice
     when "sun"
-      clear
-      puts SUN_ART
-      sign_counts(1)
-      continue
+      planet_counts(1, SUN_ART)
     when "moon"
-      clear
-      puts MOON_COUNTS_ART
-      sign_counts(2)
-      continue
+      planet_counts(2, MOON_COUNTS_ART)
     when "mercury"
-      clear
-      puts MERCURY_ART
-      sign_counts(3)
-      continue
+      planet_counts(3, MERCURY_ART)
     when "venus"
-      clear
-      puts VENUS_ART
-      sign_counts(4)
-      continue
+      planet_counts(4, VENUS_ART)
     when "mars"
-      clear
-      puts MARS_ART
-      sign_counts(5)
-      continue
+      planet_counts(5, MARS_ART)
     when "jupiter"
-      clear
-      puts JUPITER_ART
-      sign_counts(6)
-      continue
+      planet_counts(6, JUPITER_ART)
     when "saturn"
-      clear
-      puts SATURN_ART
-      sign_counts(7)
-      continue
+      planet_counts(7, SATURN_ART)
     when "uranus"
-      clear
-      puts URANUS_ART
-      sign_counts(8)
-      continue
+      planet_counts(8, URANUS_ART)
     when "neptune"
-      clear
-      puts NEPTUNE_ART
-      sign_counts(9)
-      continue
+      planet_counts(9, NEPTUNE_ART)
     when "pluto"
-      clear
-      puts PLUTO_ART
-      sign_counts(10)
-      continue
+      planet_counts(10, PLUTO_ART)
     when "return"
       break
     else
