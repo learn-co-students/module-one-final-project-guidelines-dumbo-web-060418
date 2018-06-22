@@ -1,7 +1,19 @@
 class MealController < ActiveRecord::Base
 	belongs_to :user
 
+
+def home_screen
+puts "#     #                          #####                                            
+##   ## ######   ##   #         #     # #    # ######  ####  #    # ###### #####  
+# # # # #       #  #  #         #       #    # #      #    # #   #  #      #    # 
+#  #  # #####  #    # #         #       ###### #####  #      ####   #####  #    # 
+#     # #      ###### #         #       #    # #      #      #  #   #      #####  
+#     # #      #    # #         #     # #    # #      #    # #   #  #      #   #  
+#     # ###### #    # ######     #####  #    # ######  ####  #    # ###### #    # "
+end
+
 def get_name
+  home_screen
 	puts "Please enter username"
 	user_name = gets.strip
 	user = User.find_or_create_by(name: user_name)
@@ -101,9 +113,9 @@ def welcome
         rows << :separator
 
     new_user.meals.each do |meal|
-       puts rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
-       table = Terminal::Table.new :rows => rows
-       puts table #should print out all values for this meal instance
+        rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
+        table = Terminal::Table.new :rows => rows
+        puts table #should print out all values for this meal instance
 		end
 		puts ""
 		menu_options
