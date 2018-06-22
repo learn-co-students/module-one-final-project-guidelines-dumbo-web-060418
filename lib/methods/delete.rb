@@ -1,11 +1,17 @@
-def delete
-  clear
+def get_name_to_delete
   puts "Who would you like to delete?"
   puts_space
   print_users
   puts_space
   name = gets.chomp.strip
   puts_space
+  name
+end
+
+
+def delete
+  clear
+  name = get_name_to_delete
 
   if name == "return"
     return
