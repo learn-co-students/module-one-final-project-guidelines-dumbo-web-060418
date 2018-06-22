@@ -3,19 +3,19 @@ class MealController < ActiveRecord::Base
 
 
 def home_screen
-puts "#     #                          #####
-##   ## ######   ##   #         #     # #    # ######  ####  #    # ###### #####
-# # # # #       #  #  #         #       #    # #      #    # #   #  #      #    #
-#  #  # #####  #    # #         #       ###### #####  #      ####   #####  #    #
-#     # #      ###### #         #       #    # #      #      #  #   #      #####
-#     # #      #    # #         #     # #    # #      #    # #   #  #      #   #
+puts "#     #                          #####                                            
+##   ## ######   ##   #         #     # #    # ######  ####  #    # ###### #####  
+# # # # #       #  #  #         #       #    # #      #    # #   #  #      #    # 
+#  #  # #####  #    # #         #       ###### #####  #      ####   #####  #    # 
+#     # #      ###### #         #       #    # #      #      #  #   #      #####  
+#     # #      #    # #         #     # #    # #      #    # #   #  #      #   #  
 #     # ###### #    # ######     #####  #    # ######  ####  #    # ###### #    # "
 end
 
 def get_name
   home_screen
 	puts "Please enter username"
-	user_name = gets.strip
+	user_name = gets.strip.capitalize
 	user = User.find_or_create_by(name: user_name)
 	self.update(user_id: user.id)
 	puts ""
@@ -53,7 +53,7 @@ def welcome
 		puts "4. Delete Meals"
 		puts "5. Exit"
 		puts ""
-      answer = gets.strip
+      answer = gets.strip.capitalize
 		puts ""
       what_to_do(answer)
 		puts ""
@@ -81,17 +81,17 @@ def welcome
  #Gets User's meal data
   def input_meal
      puts "Please enter the name of your meal:"
-     food = gets.strip #should make sure a string is entered and eventually be editable
+     food = gets.strip.capitalize #should make sure a string is entered and eventually be editable
     		puts "Please enter your meal calories:"
-    		calories = gets.strip
+    		calories = gets.strip.capitalize
     		puts "Please enter your sugar intake:"
-    		sugar = gets.strip
+    		sugar = gets.strip.capitalize
     		puts "Please enter your salt intake:"
-    		salt = gets.strip
+    		salt = gets.strip.capitalize
     		puts "Please enter your carb intake:"
-    		carbs = gets.strip
+    		carbs = gets.strip.capitalize
     		puts "Please enter your protein intake:"
-    		protein = gets.strip
+    		protein = gets.strip.capitalize
 
     	 meal = create_new_meal(food,calories,sugar,salt,carbs,protein)
        self.user.meals << meal
@@ -108,11 +108,24 @@ def welcome
  #Gets all the meals belonging to the User
   def check_meals
     new_user = User.find(self.user.id)
-       puts "Food | Calories | Sugar | Salt | Carbs | Protein"
+        rows = []
+        rows << ["Food", "Calories", "Sugar", "Salt", "Carbs", "Protein"]
+        rows << :separator
+        table = ''
 
     new_user.meals.each do |meal|
-        puts "#{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein}"
-		end
+        
+        
+        rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
+        table = Terminal::Table.new :rows => rows
+
+         #should print out all values for this meal instance
+    end
+    
+    
+
+    puts table
+
 
 		puts ""
 		menu_options
@@ -121,22 +134,22 @@ def welcome
  #Updates a part or all of a user's meal instance
 	def update_meals
     puts "Enter the name of the meal you want to update:"
-    meal_name = gets.strip
+    meal_name = gets.strip.capitalize
 		  new_user = User.find(self.user.id)
 			my_meal = Meal.find_by(food: meal_name)
 			if my_meal
 				puts "Enter the name of the new meal"
-		    new_meal_name = gets.strip
+		    new_meal_name = gets.strip.capitalize
 		    puts "New calories?"
-		    new_calories = gets.strip
+		    new_calories = gets.strip.capitalize
 		    puts "New sugar?"
-		    new_sugar = gets.strip
+		    new_sugar = gets.strip.capitalize
 		    puts "New salt?"
-		    new_salt = gets.strip
+		    new_salt = gets.strip.capitalize
 		    puts "New carbs?"
-		    new_carbs = gets.strip
+		    new_carbs = gets.strip.capitalize
 		    puts "New protein?"
-		    new_protein = gets.strip
+		    new_protein = gets.strip.capitalize
 	      my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
 				puts "Successfully updated #{meal_name}"
 				puts ""
@@ -150,7 +163,7 @@ end
 	#Deletes a user's meal instance
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
-    meal_name = gets.strip
+    meal_name = gets.strip.capitalize
 		new_user = User.find(self.user.id)
 		meal = new_user.meals.find {|meal| meal.food == meal_name}
      if meal
