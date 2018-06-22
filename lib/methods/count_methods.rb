@@ -89,7 +89,9 @@ def sign_counts_menu
     when "return"
       break
     else
+      puts_space
       puts "Please enter a valid command"
+      continue
     end
   end
 end
