@@ -29,6 +29,7 @@ def create_chart(name)
   end
 end
 
+
 def date_invalid?(date)
   date.length != 3 || !Date.valid_date?(date[2].to_i,date[0].to_i,date[1].to_i)
 end
@@ -38,6 +39,7 @@ def get_birthchart(date)
   CLIENT.call(date[1], date[0], date[2], 12, 00, 47.115, -101.30, -6)
 end
 
+
 def get_birthday
   puts_space
   puts "Enter birthday in MM/DD/YYYY format:"
@@ -46,6 +48,7 @@ def get_birthday
   puts_space
   birthday
 end
+
 
 def format_birthday(birthday)
   birthday.split("/")
