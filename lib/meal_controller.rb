@@ -3,12 +3,12 @@ class MealController < ActiveRecord::Base
 
 
 def home_screen
-puts "#     #                          #####                                            
-##   ## ######   ##   #         #     # #    # ######  ####  #    # ###### #####  
-# # # # #       #  #  #         #       #    # #      #    # #   #  #      #    # 
-#  #  # #####  #    # #         #       ###### #####  #      ####   #####  #    # 
-#     # #      ###### #         #       #    # #      #      #  #   #      #####  
-#     # #      #    # #         #     # #    # #      #    # #   #  #      #   #  
+puts "#     #                          #####
+##   ## ######   ##   #         #     # #    # ######  ####  #    # ###### #####
+# # # # #       #  #  #         #       #    # #      #    # #   #  #      #    #
+#  #  # #####  #    # #         #       ###### #####  #      ####   #####  #    #
+#     # #      ###### #         #       #    # #      #      #  #   #      #####
+#     # #      #    # #         #     # #    # #      #    # #   #  #      #   #
 #     # ###### #    # ######     #####  #    # ######  ####  #    # ###### #    # "
 end
 
@@ -108,15 +108,12 @@ def welcome
  #Gets all the meals belonging to the User
   def check_meals
     new_user = User.find(self.user.id)
-        rows = []
-        rows << ["Food", "Calories", "Sugar", "Salt", "Carbs", "Protein"]
-        rows << :separator
+       puts "Food | Calories | Sugar | Salt | Carbs | Protein"
 
     new_user.meals.each do |meal|
-        rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
-        table = Terminal::Table.new :rows => rows
-        puts table #should print out all values for this meal instance
+        puts "#{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein}"
 		end
+
 		puts ""
 		menu_options
   end
