@@ -37,7 +37,7 @@ def compare_charts(name1, name2)
   padding = 100 - (name1.length + 4)
   table = Terminal::Table.new :rows => row, :style => {:width => 200, :all_separators => true, :padding_left => padding, :border_x => "=", :border_i => "x"}
   table.to_s.print_ludicrous_speed
-  print_two_charts(first_chart, second_chart)
+  print_comparison(first_chart, second_chart)
 end
 
 
@@ -77,7 +77,7 @@ def get_second_user_name
 end
 
 
-def print_two_charts(first_chart, second_chart)
+def get_table_rows(first_chart, second_chart)
   i = 0
   rows = []
   while i < first_chart.length
@@ -87,6 +87,12 @@ def print_two_charts(first_chart, second_chart)
     rows << create_row(planet, sign1, sign2)
     i += 1
   end
+  rows
+end
+
+
+def print_comparison(first_chart, second_chart)
+  rows = get_table_rows(first_chart, second_chart)
   table = Terminal::Table.new :rows => rows, :style => {:width => 200, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
   table.to_s.print_stupid_fast
 end
