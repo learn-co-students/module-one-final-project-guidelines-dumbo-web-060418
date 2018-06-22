@@ -33,10 +33,7 @@ def compare_charts(name1, name2)
   second_chart = User.find_by(name: name2).sorted_chart
   clear
 
-  row = [["#{name1}  |  #{name2}"]]
-  padding = 100 - (name1.length + 4)
-  table = Terminal::Table.new :rows => row, :style => {:width => 200, :all_separators => true, :padding_left => padding, :border_x => "=", :border_i => "x"}
-  table.to_s.print_ludicrous_speed
+  print_comparison_headers(name1, name2)
   print_comparison(first_chart, second_chart)
 end
 
@@ -95,4 +92,12 @@ def print_comparison(first_chart, second_chart)
   rows = get_table_rows(first_chart, second_chart)
   table = Terminal::Table.new :rows => rows, :style => {:width => 200, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
   table.to_s.print_stupid_fast
+end
+
+
+def print_comparison_headers(name1, name2)
+  row = [["#{name1}  |  #{name2}"]]
+  padding = 100 - (name1.length + 4)
+  table = Terminal::Table.new :rows => row, :style => {:width => 200, :all_separators => true, :padding_left => padding, :border_x => "=", :border_i => "x"}
+  table.to_s.print_ludicrous_speed
 end
