@@ -21,4 +21,11 @@ class String
     end
   end
 
+  def print_stupid_fast
+    self.each_char do |c|
+      sleep 0.0001
+      print c
+    end
+  end
+
 end

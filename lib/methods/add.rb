@@ -5,12 +5,12 @@ def add
     clear
     return
   else
-    create_chart
+    create_chart(name)
   end
 end
 
 
-def create_chart
+def create_chart(name)
   date = get_birthday
 
   if date == "return"

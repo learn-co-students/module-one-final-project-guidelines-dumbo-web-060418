@@ -38,42 +38,52 @@ def sign_counts_menu
     case choice
     when "sun"
       clear
+      puts SUN_ART
       sign_counts(1)
       continue
     when "moon"
       clear
+      puts MOON_COUNTS_ART
       sign_counts(2)
       continue
     when "mercury"
       clear
+      puts MERCURY_ART
       sign_counts(3)
       continue
     when "venus"
       clear
+      puts VENUS_ART
       sign_counts(4)
       continue
     when "mars"
       clear
+      puts MARS_ART
       sign_counts(5)
       continue
     when "jupiter"
       clear
+      puts JUPITER_ART
       sign_counts(6)
       continue
     when "saturn"
       clear
+      puts SATURN_ART
       sign_counts(7)
       continue
     when "uranus"
       clear
+      puts URANUS_ART
       sign_counts(8)
       continue
     when "neptune"
       clear
+      puts NEPTUNE_ART
       sign_counts(9)
       continue
     when "pluto"
       clear
+      puts PLUTO_ART
       sign_counts(10)
       continue
     when "return"
@@ -97,6 +107,7 @@ def stat_options
   puts "type 'uranus' to see how many of your friends have each uranus sign"
   puts "type 'neptune' to see how many of your friends have each neptune sign"
   puts "type 'pluto' to see how many of your friends have each pluto sign"
+  puts_space
   puts "type 'return' to return to the main menu"
   puts_space
 end

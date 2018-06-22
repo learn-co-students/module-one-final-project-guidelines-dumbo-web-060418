@@ -32,6 +32,7 @@ def compare
       compare_charts(name1, name2)
     end
   end
+  continue
 end
 
 
@@ -75,5 +76,5 @@ def print_two_charts(first_chart, second_chart)
     i += 1
   end
   table = Terminal::Table.new :rows => rows, :style => {:width => 200, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
-  table.to_s.print_ludicrous_speed
+  table.to_s.print_stupid_fast
 end

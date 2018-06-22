@@ -22,4 +22,5 @@ def delete
     delete_user(name)
     puts "#{name} has been deleted."
   end
+  continue
 end

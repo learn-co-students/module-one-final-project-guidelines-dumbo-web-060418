@@ -3,8 +3,17 @@ def clear
 end
 
 
+def create_table(headings, rows)
+  Terminal::Table.new :headings => headings, :rows => rows, :style => {:width => 150, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
+end
+
+
+def indent
+  print " " * 21
+end
+
 def puts_line
-  puts "-" * 100
+  puts "-" * 110
 end
 
 

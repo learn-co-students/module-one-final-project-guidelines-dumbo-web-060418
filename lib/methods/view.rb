@@ -3,8 +3,9 @@ def all_planets
   Planet.all.each do |planet|
     rows << ["#{planet.name} #{planet.symbol}", planet.meaning, planet.ruler_of]
   end
-    table = Terminal::Table.new :headings => ["Planet", "Meaning", "Rules"], :rows => rows, :style => {:width => 150, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
-    table.to_s.print_ludicrous_speed
+
+  table = create_table(["Planet", "Meaning", "Rules"], rows)
+  table.to_s.print_ludicrous_speed
 end
 
 
@@ -15,7 +16,7 @@ def all_signs
     rows << ["#{sign.name} #{sign.symbol}", sign.element, sign.quality, sign.ruled_by]
   end
 
-  table = Terminal::Table.new :headings => ["Sign", "Element", "Quality", "Ruled by"], :rows => rows, :style => {:width => 80, :all_separators => true, :padding_left => 5, :border_x => "=", :border_i => "x"}
+  table = create_table(["Sign", "Element", "Quality", "Ruled by"], rows)
   table.to_s.print_ludicrous_speed
 end
 
@@ -28,10 +29,16 @@ end
 def print_chart(planet, sign)
   puts_space
   space = 40 - planet.meaning.length
+  indent
   puts "#{planet.meaning}:" + (" " * space) + "#{planet.symbol} #{planet.name} in #{sign.symbol} #{sign.name}"
   puts_space
+  indent
   puts get_meaning(planet, sign)
-  puts puts_space_line
+  indent
+  puts_space
+  indent
+  puts_line
+  sleep(0.3)
 end
 
 
@@ -53,6 +60,7 @@ def view_a_chart
   print_users
   puts_space
   name = gets.chomp.strip
+  puts_space
 
   if name == "return"
     return
@@ -60,6 +68,8 @@ def view_a_chart
     puts "That name does not exist"
     view_a_chart
   else
+    clear
+    SIGN_ART.print_ludicrous_speed
     view_chart_by_name(name)
     continue
   end
