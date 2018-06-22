@@ -1,10 +1,6 @@
 def compare
-  puts "Select first user"
-  puts_space
-  print_users
-  puts_space
+  name1 = get_first_user_name
 
-  name1 = gets.chomp.strip
   if name1 == "return"
     clear
     return
@@ -14,11 +10,7 @@ def compare
     puts_space
     compare
   else
-    puts_space
-    puts "Select second user"
-    puts_space
-    name2 = gets.chomp.strip
-    puts_space
+    name2 = get_second_user_name
 
     if name2 == "return"
       clear
@@ -30,9 +22,9 @@ def compare
       compare
     else
       compare_charts(name1, name2)
+      continue
     end
   end
-  continue
 end
 
 
@@ -62,6 +54,26 @@ def create_row(planet, sign1, sign2)
     combo = random(NEUTRAL)
   end
  return [meaning, placement1, placement2, combo]
+end
+
+
+def get_first_user_name
+  puts "Select first user"
+  puts_space
+  print_users
+  puts_space
+  name = gets.chomp.strip
+  puts_space
+  name
+end
+
+
+def get_second_user_name
+  puts "Select second user"
+  puts_space
+  name = gets.chomp.strip
+  puts_space
+  name
 end
 
 
