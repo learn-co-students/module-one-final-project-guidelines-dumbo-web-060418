@@ -70,6 +70,9 @@ def view_a_chart
   else
     clear
     SIGN_ART.print_ludicrous_speed
+    puts_space
+    indent
+    puts name.upcase
     view_chart_by_name(name)
     continue
   end
