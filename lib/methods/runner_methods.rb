@@ -107,7 +107,7 @@ def run
         puts "There are no charts to view."
         continue
       else
-        view_a_chart
+        view
       end
     when "compare"
       clear

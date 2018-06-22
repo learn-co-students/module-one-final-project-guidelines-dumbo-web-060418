@@ -54,7 +54,7 @@ def random(const)
 end
 
 
-def view_a_chart
+def view
   puts "Select a name or type 'return' to go back to the menu"
   puts_space
   print_users
@@ -66,7 +66,7 @@ def view_a_chart
     return
   elsif name_invalid?(name)
     puts "That name does not exist"
-    view_a_chart
+    view
   else
     clear
     SIGN_ART.print_ludicrous_speed
