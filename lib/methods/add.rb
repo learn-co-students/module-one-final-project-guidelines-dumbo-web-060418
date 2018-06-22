@@ -35,6 +35,11 @@ def date_invalid?(date)
 end
 
 
+def format_birthday(birthday)
+  birthday.split("/")
+end
+
+
 def get_birthchart(date)
   CLIENT.call(date[1], date[0], date[2], 12, 00, 47.115, -101.30, -6)
 end
@@ -47,11 +52,6 @@ def get_birthday
   birthday = gets.chomp.strip
   puts_space
   birthday
-end
-
-
-def format_birthday(birthday)
-  birthday.split("/")
 end
 
 

@@ -7,6 +7,7 @@ def astro_glide
   end
 end
 
+
 def continue
   puts_space
   puts "Press 'enter' to continue"

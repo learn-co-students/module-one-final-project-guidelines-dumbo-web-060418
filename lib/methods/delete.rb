@@ -1,9 +1,3 @@
-def delete_user(name)
-  user = User.find_by(name: name)
-  user.delete_chart
-  user.destroy
-end
-
 def delete
   clear
   puts "Who would you like to delete?"
@@ -23,4 +17,11 @@ def delete
     puts "#{name} has been deleted."
   end
   continue
+end
+
+
+def delete_user(name)
+  user = User.find_by(name: name)
+  user.delete_chart
+  user.destroy
 end
