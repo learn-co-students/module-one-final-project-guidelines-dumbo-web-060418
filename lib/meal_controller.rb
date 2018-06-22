@@ -3,7 +3,7 @@ class MealController < ActiveRecord::Base
 
 def get_name
 	puts "Please enter username"
-	user_name = gets.chomp
+	user_name = gets.strip
 	user = User.find_or_create_by(name: user_name)
 	self.update(user_id: user.id)
 	puts ""
@@ -41,7 +41,7 @@ def welcome
 		puts "4. Delete Meals"
 		puts "5. Exit"
 		puts ""
-      answer = gets.chomp
+      answer = gets.strip
 		puts ""
       what_to_do(answer)
 		puts ""
@@ -69,17 +69,17 @@ def welcome
  #Gets User's meal data
   def input_meal
      puts "Please enter the name of your meal:"
-     food = gets.chomp #should make sure a string is entered and eventually be editable
+     food = gets.strip #should make sure a string is entered and eventually be editable
     		puts "Please enter your meal calories:"
-    		calories = gets.chomp
+    		calories = gets.strip
     		puts "Please enter your sugar intake:"
-    		sugar = gets.chomp
+    		sugar = gets.strip
     		puts "Please enter your salt intake:"
-    		salt = gets.chomp
+    		salt = gets.strip
     		puts "Please enter your carb intake:"
-    		carbs = gets.chomp
+    		carbs = gets.strip
     		puts "Please enter your protein intake:"
-    		protein = gets.chomp
+    		protein = gets.strip
 
     	 meal = create_new_meal(food,calories,sugar,salt,carbs,protein)
        self.user.meals << meal
@@ -96,9 +96,14 @@ def welcome
  #Gets all the meals belonging to the User
   def check_meals
     new_user = User.find(self.user.id)
-       puts "| Food | Calories | Sugar | Salt | Carbs | Protein |"
+        rows = []
+        rows << ["Food", "Calories", "Sugar", "Salt", "Carbs", "Protein"]
+        rows << :separator
+
     new_user.meals.each do |meal|
-       puts "| #{meal.food} | #{meal.calories} | #{meal.sugar} | #{meal.salt} | #{meal.carbs} | #{meal.protein} |"  #should print out all values for this meal instance
+       puts rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
+       table = Terminal::Table.new :rows => rows
+       puts table #should print out all values for this meal instance
 		end
 		puts ""
 		menu_options
@@ -107,22 +112,22 @@ def welcome
  #Updates a part or all of a user's meal instance
 	def update_meals
     puts "Enter the name of the meal you want to update:"
-    meal_name = gets.chomp
+    meal_name = gets.strip
 		  new_user = User.find(self.user.id)
 			my_meal = Meal.find_by(food: meal_name)
 			if my_meal
 				puts "Enter the name of the new meal"
-		    new_meal_name = gets.chomp
+		    new_meal_name = gets.strip
 		    puts "New calories?"
-		    new_calories = gets.chomp
+		    new_calories = gets.strip
 		    puts "New sugar?"
-		    new_sugar = gets.chomp
+		    new_sugar = gets.strip
 		    puts "New salt?"
-		    new_salt = gets.chomp
+		    new_salt = gets.strip
 		    puts "New carbs?"
-		    new_carbs = gets.chomp
+		    new_carbs = gets.strip
 		    puts "New protein?"
-		    new_protein = gets.chomp
+		    new_protein = gets.strip
 	      my_meal.update(food: new_meal_name, calories: new_calories, sugar: new_sugar, salt: new_salt, carbs: new_carbs, protein: new_protein)
 				puts "Successfully updated #{meal_name}"
 				puts ""
@@ -136,7 +141,7 @@ end
 	#Deletes a user's meal instance
  	def delete_meal
  		puts "Enter the name of the meal you want to delete:"
-    meal_name = gets.chomp
+    meal_name = gets.strip
 		new_user = User.find(self.user.id)
 		meal = new_user.meals.find {|meal| meal.food == meal_name}
      if meal
