@@ -116,7 +116,7 @@ def welcome
     new_user.meals.each do |meal|
         
         
-        rows << [ meal.food, meal.calories, meal.sugar, meal.salt, meal.carbs, meal.protein]
+        rows << [ meal.food, "#{meal.calories}cals", "#{meal.sugar}g", "#{meal.salt}mg", "#{meal.carbs}g", "#{meal.protein}g"]
         table = Terminal::Table.new :rows => rows
 
          #should print out all values for this meal instance
